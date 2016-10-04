@@ -203,6 +203,7 @@
     <Compile Include="Areas\Crawler\Controllers\CrawlerController.cs" />
     <Compile Include="Areas\Crawler\CrawlerAreaRegistration.cs" />
     <Compile Include="Areas\Crawler\Models\ProductDetails.cs" />
+    <Compile Include="Areas\Crawler\Models\Specification.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -232,7 +233,8 @@
     <Content Include="Areas\Crawler\Views\web.config" />
     <Content Include="Areas\Crawler\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Crawler\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Crawler\Views\Crawler\Crawler.cshtml" />
+    <Content Include="Areas\Crawler\Views\Crawler\Index.cshtml" />
+    <Content Include="Areas\Crawler\Views\Crawler\Shitec.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

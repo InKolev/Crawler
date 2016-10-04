@@ -1,0 +1,182 @@
+﻿<div class="col-md-12">
+    <div class="tm-tabs">
+        <ul class="nav nav-tabs">
+
+            <li class="active">
+                <a aria-expanded="true" aria-controls="product-tab1" data-toggle="tab" role="tab" id="product-nav-tab-1" href="#product-tab1">
+                    Спецификации
+                </a>
+            </li>
+            <li class="kiosk-hidden ">
+                <a aria-expanded="true" aria-controls="product-tab2" data-toggle="tab" role="tab" id="product-nav-tab-2" href="#product-tab2">
+                    Наличност по магазини
+                </a>
+            </li>
+            <li class="">
+                <a aria-expanded="true" aria-controls="product-tab3" data-toggle="tab" role="tab" id="product-nav-tab-3" href="#product-tab3">
+                    Купи на кредит
+                </a>
+            </li>
+
+        </ul>
+    </div><!--/.tm-tabs-->
+    <div class="tab-content">
+
+
+        <div id="product-tab1" class="tab-pane fade active in" role="tabpanel">
+            <section class="product-specifications">
+                <table class="table tm-table">
+                    <tbody>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Тип Компютърна система:</th>
+                            <td>
+                                Домашно PC
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Памет (RAM):</th>
+                            <td>
+                                4GB
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Процесор, серия:</th>
+                            <td>
+                                Intel Celeron
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Хардиск (GB):</th>
+                            <td>
+                                500
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Хардиск, тип:</th>
+                            <td>
+                                SATA
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Видео карта (VGA Chip):</th>
+                            <td>
+                                INTEL
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Видео памет, GB:</th>
+                            <td>
+                                1 GB
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="icon-arrow-right"></i>Операционна система:</th>
+                            <td>
+                                Без операционна система
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div id="product-tab2" class="kiosk-hidden tab-pane fade" role="tabpanel">
+            <section class="product-stock">
+                <div class="stock-legend">
+                    <ul>
+                        <li class="stock-max">
+                            <i class="icon-check"></i>
+                            Продуктът е наличен
+                        </li>
+                        <li class="stock-mid">
+                            <i class="icon-check"></i>
+                            Ограничена наличност
+                        </li>
+                        <li class="stock-min">
+                            <i class="icon-check"></i>
+                            Побързай, може да свърши
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <ul>
+                    <li class="stock-min">
+                        <a href="/sofiq/tehnomarket-retejl-park-sredec" title="Побързай, може да свърши">
+                            <i class="icon-check"></i>
+                            ТЕХНОМАРКЕТ РЕТЕЙЛ ПАРК СРЕДЕЦ
+                        </a>
+                    </li>
+                </ul>
+
+
+
+            </section>
+        </div>
+        <div id="product-tab3" class="tab-pane fade" role="tabpanel">
+            <section class="product-credit">
+                <div class="row row-brp">
+                    <div class="tm-tabs col-md-4" id="credit_tabs">
+                        <ul class="nav nav-stacked">
+                            <li>
+                                <a aria-expanded="true" data-uri="/credit/buy/tbicredit/09134352" aria-controls="tab1" data-toggle="tab" role="tab" id="nav-tab-1" href="#tab1">
+                                    <img src="//cdn.technomarket.bg/images/de9f1ba.png" alt="TBI Bank">
+
+                                </a>
+                            </li>
+                            <li>
+                                <a aria-expanded="true" data-uri="/credit/buy/unicredit/09134352" aria-controls="tab2" data-toggle="tab" role="tab" id="nav-tab-2" href="#tab2">
+                                    <img src="//cdn.technomarket.bg/images/d0755a0.png" alt="UniCredit">
+
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="tm-tab-content tab-content col-md-12">
+                        <div class="tab-pane active in" role="tabpanel">
+                            Изберите схема за продукт на изплащане
+                        </div>
+                        <div id="tab1" class="tab-pane fade" role="tabpanel">
+                        </div>
+                        <div id="tab2" class="tab-pane fade" role="tabpanel">
+                        </div>
+                        <div id="tab3" class="tab-pane fade" role="tabpanel">
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+
+    require(['jquery'], function($){
+        var loaded = [];
+        $('#show_credits_link').click(function(e){
+
+            $('a[href="' + '#product-tab3' + '"]').tab('show');
+
+        });
+
+        $('#show_vivacom_link').click(function(e){
+
+            $('a[href="' + '#product-tab5' + '"]').tab('show');
+
+        });
+        $('#credit_tabs a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+            var $e = $(e.target);
+            var tabId = $e.attr('href');
+
+            if ($.inArray(tabId, loaded) > -1)
+                return;
+
+            var $tab = $(tabId);
+            $tab.load($e.attr('data-uri'));
+            loaded.push(tabId)
+        })
+    });
+
+                </script>
+
+
+            </section>
+        </div>
+    </div><!--/.tab-content-->
+</div>

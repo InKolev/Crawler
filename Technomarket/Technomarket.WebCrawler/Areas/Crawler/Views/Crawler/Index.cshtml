@@ -1,0 +1,52 @@
+﻿@model IEnumerable<IEnumerable<ProductDetails>>
+@{
+    ViewBag.Title = "Crawler";
+    var categoryNumber = 1;
+}
+
+<h1>Results scraped - {@this.Model.Count()}</h1>
+
+<div class="container">
+    @foreach (var category in this.Model)
+    {
+        if (categoryNumber == 1)
+        {
+            <h1>Computers</h1>
+        }
+        else if (categoryNumber == 2)
+        {
+            <h1>Laptops</h1>
+        }
+        else if (categoryNumber == 3)
+        {
+            <h1>Monitors</h1>
+        }
+
+        <div class="row">
+            @foreach (var productDetails in category)
+            {
+                <div class="col-lg-4">
+                    <h3>@productDetails.ProductName</h3>
+                    <img src="@productDetails.ProductImageUrl" style="width:100px; height:100px;" />
+                    <ul>
+                        @foreach (var descriptionItem in productDetails.DescriptionItems)
+                    {
+                            <li>@descriptionItem</li>
+                        }
+                    </ul>
+
+                    @if (productDetails.SpecificationItems != null)
+                    {
+                        <ul>
+                            @foreach (var specificationItem in productDetails.SpecificationItems)
+                        {
+                                <li><b>@specificationItem.SpecificationName</b> - @specificationItem.SpecificationValue</li>
+                            }
+                        </ul>
+                    }
+                </div>
+            }
+        </div>
+        categoryNumber += 1;
+    }
+</div>

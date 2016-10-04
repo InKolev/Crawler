@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Technomarket.WebCrawler.Areas.Crawler.Models
 {
@@ -11,8 +8,8 @@ namespace Technomarket.WebCrawler.Areas.Crawler.Models
 
         public string ProductImageUrl { get; set; }
 
-        public string Description { get; set; }
+        public IEnumerable<string> DescriptionItems { get; set; }
 
-
+        public IEnumerable<Specification> SpecificationItems { get; set; }
     }
 }
