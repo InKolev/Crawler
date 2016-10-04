@@ -19,9 +19,9 @@ namespace Technomarket.WebCrawler.Areas.Crawler.Controllers
         // GET: Crawler/Crawler
         public async Task<ActionResult> Index()
         {
-            var computersDetailsResult = await this.DoWhatYouDoBest("http://www.technomarket.bg/product/filter?filter_form%5Bsort%5D=default&filter_form%5Bprice%5D%5Bmin%5D=419&filter_form%5Bprice%5D%5Bmax%5D=4899&filter_form%5Bspec_laptop_hdd%5D%5Bmin%5D=&filter_form%5Bspec_laptop_hdd%5D%5Bmax%5D=&filter_key=%2Fcomputri%7Cstatic%7Cstatic&from=0&size=200");
-            var laptopDetailsResult = await this.DoWhatYouDoBest("http://www.technomarket.bg/product/filter?filter_form%5Bsort%5D=default&filter_form%5Bprice%5D%5Bmin%5D=359&filter_form%5Bprice%5D%5Bmax%5D=5586&filter_form%5Bspec_tv_screen%5D%5Bmin%5D=&filter_form%5Bspec_tv_screen%5D%5Bmax%5D=&filter_form%5Bspec_laptop_hdd%5D%5Bmin%5D=&filter_form%5Bspec_laptop_hdd%5D%5Bmax%5D=&filter_form%5Bspec_laptop_wg%5D%5Bmin%5D=&filter_form%5Bspec_laptop_wg%5D%5Bmax%5D=&filter_key=%2Flaptopi%7Cstatic%7Cstatic&from=0&size=500");
-            var monitorsDetailsResult = await this.DoWhatYouDoBest("http://www.technomarket.bg/product/filter?filter_form%5Bsort%5D=default&filter_form%5Bprice%5D%5Bmin%5D=139&filter_form%5Bprice%5D%5Bmax%5D=749&filter_form%5Bspec_tv_screen%5D%5Bmin%5D=&filter_form%5Bspec_tv_screen%5D%5Bmax%5D=&filter_key=%2Fmonitori%7Cstatic%7Cstatic&from=20&size=20");
+            var computersDetailsResult = await this.DoWhatYouDoBest("http://www.technomarket.bg/product/filter?filter_form%5Bsort%5D=default&filter_form%5Bprice%5D%5Bmin%5D=419&filter_form%5Bprice%5D%5Bmax%5D=4899&filter_form%5Bspec_laptop_hdd%5D%5Bmin%5D=&filter_form%5Bspec_laptop_hdd%5D%5Bmax%5D=&filter_key=%2Fcomputri%7Cstatic%7Cstatic&from=0&size=100");
+            var laptopDetailsResult = await this.DoWhatYouDoBest("http://www.technomarket.bg/product/filter?filter_form%5Bsort%5D=default&filter_form%5Bprice%5D%5Bmin%5D=359&filter_form%5Bprice%5D%5Bmax%5D=5586&filter_form%5Bspec_tv_screen%5D%5Bmin%5D=&filter_form%5Bspec_tv_screen%5D%5Bmax%5D=&filter_form%5Bspec_laptop_hdd%5D%5Bmin%5D=&filter_form%5Bspec_laptop_hdd%5D%5Bmax%5D=&filter_form%5Bspec_laptop_wg%5D%5Bmin%5D=&filter_form%5Bspec_laptop_wg%5D%5Bmax%5D=&filter_key=%2Flaptopi%7Cstatic%7Cstatic&from=0&size=100");
+            var monitorsDetailsResult = await this.DoWhatYouDoBest("http://www.technomarket.bg/product/filter?filter_form%5Bsort%5D=default&filter_form%5Bprice%5D%5Bmin%5D=139&filter_form%5Bprice%5D%5Bmax%5D=749&filter_form%5Bspec_tv_screen%5D%5Bmin%5D=&filter_form%5Bspec_tv_screen%5D%5Bmax%5D=&filter_key=%2Fmonitori%7Cstatic%7Cstatic&from=0&size=100");
             //var laptopDetails = this.DoWhatYouDoBest("");
 
             var computerDetails = computersDetailsResult;
@@ -72,6 +72,13 @@ namespace Technomarket.WebCrawler.Areas.Crawler.Controllers
                 var fullProductUrl = $"{TechnomarketBaseURL}{relativeProductUrl}";
                 var productName = product.SelectSingleNode(".//span[@itemprop='name']").InnerText;
                 productName = this.FilterText(productName);
+
+
+
+                // get price
+
+
+
 
                 // Build product document
                 var productDetailsResult = await httpClient.GetAsync(fullProductUrl);
